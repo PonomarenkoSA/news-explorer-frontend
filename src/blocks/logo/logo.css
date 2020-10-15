@@ -1,0 +1,10 @@
+@import url(./_white/logo_white);
+@import url(./_dark/logo_dark);
+
+.logo {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}

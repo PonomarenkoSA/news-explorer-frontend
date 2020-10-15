@@ -1,0 +1,5 @@
+.popup__container.popup__container_button {
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}

@@ -1,0 +1,8 @@
+.footer__container {
+  width: 85.5%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}

@@ -1,0 +1,11 @@
+@import url(./__conteiner/footer__container.css);
+@import url(./__navigation-list/footer__navigation-list.css);
+@import url(./__link-item/footer__link-item.css);
+@import url(./__navigation/footer__navigation.css);
+@import url(./__social-icon/footer__social-icon.css);
+@import url(./__author/footer__author.css);
+
+.footer {
+  min-height: 80px;
+  height: 1px;
+}

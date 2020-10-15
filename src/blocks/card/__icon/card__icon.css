@@ -1,0 +1,14 @@
+@import url(./_saved/card__icon_saved.css);
+@import url(./_unsaved/card__icon_unsaved.css);
+@import url(./_trash/card__icon_trash.css);
+
+.card__icon {
+  height: 40px;
+  min-width: 40px;
+  border-radius: 8px;
+  margin-left: 5px;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

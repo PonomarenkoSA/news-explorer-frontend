@@ -1,0 +1,13 @@
+@import url(./_hidden/header__button_hidden.css);
+@import url(./_auth/header__button_auth.css);
+@import url(./_name/header__button_name.css);
+
+.header__button {
+  box-sizing: border-box;
+  border-radius: 100px;
+  background-color: transparent;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}

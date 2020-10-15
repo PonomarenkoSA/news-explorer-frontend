@@ -1,0 +1,18 @@
+.search-result__button {
+  display: block;
+  margin: 64px auto 0;
+  background-color: #FFF;
+  border-radius: 80px;
+  color:  #1A1B22;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  height: 64px;
+  width: 288px;
+}
+
+.search-result__button:hover {
+  opacity: 0.9;
+}

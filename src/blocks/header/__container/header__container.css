@@ -1,0 +1,12 @@
+@import url(./_white/header__container_white.css);
+@import url(./_dark/header__container_dark.css);
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85.5%;
+  min-height: 80px;
+  height: 1px;
+  margin: 0 auto;
+}

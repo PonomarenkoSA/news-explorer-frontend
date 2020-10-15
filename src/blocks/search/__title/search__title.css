@@ -1,0 +1,10 @@
+.search__title {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 64px;
+  max-width: 545px;
+  margin: 0 0 32px;
+  color: #fff;
+}

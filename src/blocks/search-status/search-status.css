@@ -1,0 +1,9 @@
+@import url(./_preloader/search-status_preloader.css);
+@import url(./__text/search-status__text.css);
+@import url(./_not-found/search-status_not-found.css);
+@import url(./__not-found-icon/search-status__not-found-icon.css);
+@import url(./__titile/search-status__title.css);
+
+.search-status {
+  background-color: #F5F6F7;
+}

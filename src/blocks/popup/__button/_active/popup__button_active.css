@@ -1,0 +1,8 @@
+.popup__button.popup__button_active {
+  background-color: #2F71E5;
+  color: #FFF;
+}
+
+.popup__button.popup__button_active:hover {
+  background-color: #347EFF;
+}

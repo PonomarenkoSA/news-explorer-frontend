@@ -1,0 +1,7 @@
+.footer__navigation-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 10px 0 0;
+  height: 100%;
+}

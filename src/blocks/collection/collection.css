@@ -1,0 +1,6 @@
+@import url(./__container/collection__container.css);
+
+.collection {
+  background-color: #F5F6F7;
+  padding: 62px 0;
+}

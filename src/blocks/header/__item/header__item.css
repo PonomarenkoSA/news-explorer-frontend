@@ -1,0 +1,9 @@
+@import url(./_underlined-white/header__item_underlined-white.css);
+@import url(./_underlined-dark/header__item_underlined-dark.css);
+
+.header__item {
+  margin-right: 32px;
+  align-items: center;
+  display: flex;
+  box-sizing: border-box;
+}
