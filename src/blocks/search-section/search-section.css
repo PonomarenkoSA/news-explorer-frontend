@@ -1,0 +1,18 @@
+.search-section {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../../images/cover.jpg);
+}
+
+@media screen and (max-width: 768px) {
+  .search-section {
+    background-image: url(../../images/cover-tab.jpg);
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .search-section {
+    background-image: url(../../images/cover-mobile.jpg);
+  }
+}

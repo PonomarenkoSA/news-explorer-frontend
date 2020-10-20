@@ -1,0 +1,6 @@
+.card__warning.card__warning_is-opened {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}

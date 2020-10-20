@@ -1,0 +1,19 @@
+.stat__container {
+  width: 85.5%;
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+@media screen and (max-width: 980px) {
+  .stat__container {
+    padding: 24px 0 32px;
+    width: 89.6%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .stat__container {
+    padding: 8px 0 32px;
+    width: 90%;
+  }
+}

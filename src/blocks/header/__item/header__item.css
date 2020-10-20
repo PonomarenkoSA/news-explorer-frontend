@@ -1,0 +1,16 @@
+@import url(./_underlined-white/header__item_underlined-white.css);
+@import url(./_underlined-dark/header__item_underlined-dark.css);
+@import url(./_hidden/header__item_hidden.css);
+
+.header__item {
+  margin-right: 32px;
+  align-items: center;
+  display: flex;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 980px) {
+  .header__item {
+    margin-right: 16px;
+  }
+}

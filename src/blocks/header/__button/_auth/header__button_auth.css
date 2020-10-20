@@ -1,0 +1,14 @@
+.header__button_auth {
+  border: 1px solid #fff;
+  width: 176px;
+  height: 48px;
+  padding: 0px;
+  color: #fff;
+}
+
+@media screen and (max-width: 980px) {
+  .header__button_auth {
+    width: 152px;
+    height: 40px;
+  }
+}

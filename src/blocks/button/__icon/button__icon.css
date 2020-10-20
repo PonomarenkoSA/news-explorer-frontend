@@ -1,0 +1,7 @@
+@import url(./_white/button__icon_white.css);
+@import url(./_dark/button__icon_dark.css);
+
+.button__icon {
+  width: 24px;
+  height: 24px;
+}

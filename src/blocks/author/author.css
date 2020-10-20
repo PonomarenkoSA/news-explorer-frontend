@@ -1,0 +1,25 @@
+@import url(./__photo/author__photo.css);
+@import url(./__title/author__titile.css);
+@import url(./__text/author__text.css);
+@import url(./__text-container/author__text-container.css);
+
+.author {
+  width: 85.5%;
+  margin: 80px auto;
+  display: flex;
+}
+
+@media screen and (max-width: 980px) {
+  .author {
+    width: 89.6%;
+    margin: 40px auto 61px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .author {
+    width: 90%;
+    margin: 32px auto 80px;
+    display: block;
+  }
+}

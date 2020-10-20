@@ -1,0 +1,16 @@
+.collection__container {
+  width: 85.5%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:980px) {
+  .collection__container {
+    width: 89.6%;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .collection__container {
+    width: 90%;
+  }
+}

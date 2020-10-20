@@ -1,0 +1,5 @@
+@import url(./_success/popup__link_success.css);
+
+.popup__link {
+  color: #2f71e5;
+}

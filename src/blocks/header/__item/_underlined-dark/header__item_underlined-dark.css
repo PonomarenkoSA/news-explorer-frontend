@@ -1,0 +1,4 @@
+.header__item_underlined-dark {
+  border-bottom: 3px solid #1A1B22;
+  border-top: 3px solid rgb(255, 255, 255, 0);
+}

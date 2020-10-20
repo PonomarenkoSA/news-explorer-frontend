@@ -1,0 +1,23 @@
+.footer__container {
+  width: 85.5%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+@media screen and (max-width: 980px) {
+  .footer__container {
+    width: 89.6%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .footer__container {
+    width: 90%;
+    padding: 20px 0;
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}

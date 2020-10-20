@@ -1,0 +1,13 @@
+.root {
+  max-width: 1440px;
+  min-height: 100vh;
+  font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #1a1b22;
+  }

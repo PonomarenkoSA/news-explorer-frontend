@@ -1,0 +1,61 @@
+@import url(./__image/card__image.css);
+@import url(./__date/card__date.css);
+@import url(./__title/card__title.css);
+@import url(./__text/card__text.css);
+@import url(./__source/card__source.css);
+@import url(./__content/card__content.css);
+@import url(./__icon-container/card__icon-container.css);
+@import url(./__warning/card__warning.css);
+@import url(./__icon/card__icon.css);
+@import url(./__sphere/card__sphere.css);
+
+.card {
+  border-radius: 16px;
+  height: 576px;
+  position: relative;
+  background-color: #FFF;
+  font-size: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 980px) {
+  .card {
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 745px) {
+  .card {
+    height: 460px;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .card {
+    height: 440px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    height: 579px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .card {
+    height: 545px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .card {
+    height: 440px;
+    margin: 0 auto;
+  }
+}

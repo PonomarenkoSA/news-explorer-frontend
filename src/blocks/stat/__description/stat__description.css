@@ -1,0 +1,21 @@
+.stat__description {
+  margin: 0 0 28px;
+  font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+@media screen and (max-width: 980px) {
+  .stat__description {
+    font-size: 14px;
+    margin: 0 0 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .stat__description {
+    font-size: 12px;
+  }
+}
