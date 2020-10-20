@@ -10,3 +10,17 @@
   height: 1px;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 980px) {
+  .header__container {
+    width: 89.5%;
+    min-height: 66px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .header__container {
+    width: 90%;
+    min-height: 56px;
+  }
+}

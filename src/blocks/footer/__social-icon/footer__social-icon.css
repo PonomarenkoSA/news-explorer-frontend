@@ -1,3 +1,14 @@
 .footer__social-icon {
   margin: 0 28px 0 0;
+  display: inline-flex;
+}
+
+.footer__social-icon:last-of-type {
+  margin: 0;
+}
+
+@media screen and (max-width:980px) {
+  .footer__social-icon {
+    margin: 0 24px 0 0;
+  }
 }

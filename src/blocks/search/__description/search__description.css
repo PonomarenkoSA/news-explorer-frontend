@@ -1,10 +1,23 @@
 .search__description {
-  font-family: 'Roboto';
+  font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  max-width: 545px;
+  width: 95%;
   margin: 0 0 64px;
   color: #fff;
+}
+
+@media screen and (max-width: 980px) {
+  .search__description {
+    margin: 0 0 48px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .search__description {
+    margin: 0 0 122px;
+    width: 100%;
+  }
 }

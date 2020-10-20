@@ -4,7 +4,7 @@
   background-color: #FFF;
   border-radius: 80px;
   color:  #1A1B22;
-  font-family: 'Roboto';
+  font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -15,4 +15,20 @@
 
 .search-result__button:hover {
   opacity: 0.9;
+}
+
+@media screen and (max-width: 980px) {
+  .search-result__button {
+    margin: 32px auto 0;
+    height: 56px;
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-result__button {
+    margin: 15px auto 0;
+    height: 56px;
+    width: 100%;
+  }
 }

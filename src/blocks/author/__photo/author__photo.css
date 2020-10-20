@@ -1,3 +1,16 @@
 .author__photo {
   margin: 0 56px 0 0;
 }
+
+@media screen and (max-width: 980px) {
+  .author__photo {
+    margin: 21px 32px 0 0;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .author__photo {
+    display: block;
+    margin: 0 auto 24px;
+  }
+}

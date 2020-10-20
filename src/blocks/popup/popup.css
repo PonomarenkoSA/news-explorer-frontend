@@ -9,6 +9,18 @@
 @import url(./__text/popup__text.css);
 @import url(./__title/popup__title.css);
 @import url(./_is-opened/popup_is-opened.css);
+@import url(./_menu-mobile/popup_menu-mobile.css);
+@import url(./__content-mobile/popup__content-mobile.css);
+@import url(./__close-mobile/popup__close-mobile.css);
+@import url(./__logo/popup__logo.css);
+@import url(./__navigation-mobile/popup__navigation-mobile.css);
+@import url(./__list-mobile/popup__list-mobile.css);
+@import url(./__item-mobile/popup__item-mobile.css);
+@import url(./__link-mobile/popup__link-mobile.css);
+@import url(./__button-mobile/popup__button-mobile.css);
+@import url(./__user-mobile/popup__user-mobile.css);
+@import url(./__icon-mobile/popup__icon-mobile.css);
+
 
 .popup {
   position: fixed;
@@ -20,4 +32,10 @@
   display: none;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 545px) {
+  .popup {
+    background-color: rgba(0, 0, 0, 0);
+  }
 }

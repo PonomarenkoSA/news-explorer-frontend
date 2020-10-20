@@ -1,13 +1,22 @@
 @import url(./_hidden/header__button_hidden.css);
 @import url(./_auth/header__button_auth.css);
 @import url(./_name/header__button_name.css);
+@import url(./_dark/header__button_dark.css);
+@import url(./_white/header__button_white.css);
+
 
 .header__button {
   box-sizing: border-box;
   border-radius: 100px;
   background-color: transparent;
-  font-family: 'Roboto';
+  font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
+}
+
+@media screen and (max-width: 980px) {
+  .header__button {
+    font-size: 16px;
+  }
 }

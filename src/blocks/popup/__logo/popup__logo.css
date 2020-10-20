@@ -1,0 +1,9 @@
+.popup__logo {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  margin: auto 0;
+  align-items: center;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  padding-left: calc(5%);
+}

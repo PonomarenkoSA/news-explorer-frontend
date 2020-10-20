@@ -2,9 +2,10 @@
 @import url(./_input/popup__error_input.css);
 
 .popup__error {
-  font-family: Inter;
+  font-family: 'Inter', 'Roboto Slab', Arial, sans-serif;
   color: #FF0000;
   font-size: 12px;
   line-height: 15px;
   position: absolute;
+  white-space: nowrap;
 }

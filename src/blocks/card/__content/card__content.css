@@ -3,3 +3,9 @@
   overflow: hidden;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 980px) {
+  .card__content {
+    padding: 16px 16px 0;
+  }
+}

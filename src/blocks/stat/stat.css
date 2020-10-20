@@ -7,3 +7,9 @@
 .stat {
   background-color: #FFF;
 }
+
+@media screen and (max-width:500px) {
+  .stat {
+    margin-top: 56px;
+  }
+}

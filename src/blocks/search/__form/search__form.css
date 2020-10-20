@@ -4,3 +4,15 @@
   position: relative;
   border-radius: 100px;
 }
+
+@media screen and (max-width: 980px) {
+  .search__form {
+    height: 56px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .search__form {
+    min-height: 128px;
+  }
+}

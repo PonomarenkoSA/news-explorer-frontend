@@ -1,9 +1,14 @@
 .header__button_name {
-  border: 1px solid #1A1B22;
   height: 48px;
   padding: 0px 18px;
-  color: #1A1B22;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 980px) {
+  .header__button_name {
+    height: 40px;
+    padding: 0px 15px;
+  }
 }

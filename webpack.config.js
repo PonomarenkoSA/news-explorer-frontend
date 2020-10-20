@@ -15,17 +15,17 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: './scripts/[name].[chunkhash].js',
+    filename: './[name]/[name].[chunkhash].js',
   },
   module: {
     rules: [
       {
-        test: /\.js$/i,
+        test: /\.js$/,
         use: { loader: 'babel-loader' },
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: [
           isDev ? 'style-loader' : {
             loader: MiniCssExtractPlugin.loader,
@@ -36,7 +36,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|gif|ico|svg)$/i,
+        test: /\.(png|jpg|gif|ico|svg)$/,
         use: [
           'file-loader?name=./images/[name].[ext]',
           {
@@ -46,15 +46,15 @@ module.exports = {
         ],
       },
       {
-        test: /\.(eot|ttf|woff|woff2)$/i,
+        test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file-loader?name=./vendor/[name].[ext]',
       },
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: './css/[name].[contenthash].css' }),
+    new MiniCssExtractPlugin({ filename: './[name]/[name].[contenthash].css' }),
     new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/i,
+      assetNameRegExp: /\.css$/g,
       cssProcessor: cssnano,
       cssProcessorPluginOptions: {
         preset: ['default'],
@@ -64,13 +64,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/index.html',
-      filename: 'index.html',
+      filename: './index.html',
       chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/articles.html',
-      filename: 'articles.html',
+      filename: './articles.html',
       chunks: ['articles'],
     }),
     new WebpackMd5Hash(),

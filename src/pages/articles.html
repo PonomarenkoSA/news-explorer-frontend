@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,16 +26,14 @@
               <a href="./articles.html" class="link header__link header__link_dark">Сохранённые статьи</a>
             </li>
           </ul>
-          <button class="button header__button header__button_auth header__button_hidden">Авторизоваться</button>
-          <button class="button header__button header__button_name">
+          <button class="button header__button header__button_name header__button_dark">
             <span class="button__user button__user_dark">Грета</span>
-            <div class="button__icon button__icon_dark"></div>
+            <i class="button__icon button__icon_dark"></i>
           </button>
         </nav>
         <button class="button header__button-mobile header__button-mobile_dark"></button>
       </div>
     </header>
-
 
     <main class="content">
 
@@ -55,10 +52,12 @@
       <section class="collection">
         <div class="collection__container">
           <div class="cards-container">
+
             <div class="card">
               <img src="<%=require('../images/image_06.jpg').default%>" alt="Фото статьи" class="card__image">
               <div class="card__icon-container">
                 <div class="card__icon card__icon_trash"></div>
+                <!-- Чтобы активировать предупреждение нужно добавить класс card__warning_is-opened -->
                 <p class="card__warning card__warning_del">Убрать из сохранённых</p>
                 <p class="card__sphere">Природа</p>
               </div>
@@ -71,7 +70,6 @@
               </div>
               <p class="card__source">Дзен</p>
             </div>
-
 
             <div class="card">
               <img src="<%=require('../images/image_01.jpg').default%>" alt="Фото статьи" class="card__image">
@@ -90,12 +88,12 @@
               <p class="card__source">Афиша</p>
             </div>
 
-
             <div class="card">
               <img src="<%=require('../images/image_05.jpg').default%>" alt="Фото статьи" class="card__image">
               <div class="card__icon-container">
                 <div class="card__icon card__icon_trash"></div>
-                <p class="card__warning card__warning_del card__warning_active">Убрать из сохранённых</p>
+                <!-- Чтобы деактивировать предупреждение нужно убрать класс card__warning_is-opened -->
+                <p class="card__warning card__warning_del card__warning_is-opened">Убрать из сохранённых</p>
                 <p class="card__sphere">Парки</p>
               </div>
               <div class="card__content">
@@ -107,7 +105,6 @@
               </div>
               <p class="card__source">Медиазона</p>
             </div>
-
 
             <div class="card">
               <img src="<%=require('../images/image_08.jpg').default%>" alt="Фото статьи" class="card__image">
@@ -126,7 +123,6 @@
               <p class="card__source">Дзен</p>
             </div>
 
-
             <div class="card">
               <img src="<%=require('../images/image_04.jpg').default%>" alt="Фото статьи" class="card__image">
               <div class="card__icon-container">
@@ -143,7 +139,6 @@
               </div>
               <p class="card__source">Афиша</p>
             </div>
-
 
             <div class="card">
               <img src="<%=require('../images/image_07.jpg').default%>" alt="Фото статьи" class="card__image">
@@ -162,7 +157,6 @@
               <p class="card__source">Медиазона</p>
             </div>
 
-
           </div>
         </div>
       </section>
@@ -171,23 +165,50 @@
     <footer class="footer">
       <div class="footer__container">
         <p class="footer__author">© 2020 Supersite, Powered by News API</p>
-        <nav class="footer__navigation">
+        <div class="footer__navigation">
           <ul class="footer__navigation-list">
-            <li><a class="link footer__link-item" href="">Главная</a></li>
-            <li><a class="link footer__link-item" href="https://praktikum.yandex.ru"
-                target="_blank">Яндекс.Практикум</a></li>
+            <li class="footer__item">
+              <a class="link footer__link-item" href="./index.html">Главная</a>
+            </li>
+            <li class="footer__item">
+              <a class="link footer__link-item" href="https://praktikum.yandex.ru" target="_blank">Яндекс.Практикум</a>
+            </li>
           </ul>
           <div class="footer__social">
-            <a href="https://github.com/PonomarenkoSA" class="link footer__social-icon" target="_blank"><img
-                src="<%=require('../images/github.svg').default%>" alt="github"></a>
-            <a href="https://www.facebook.com" class="link footer__social-icon" target="_blank"><img
-                src="<%=require('../images/fb.svg').default%>" alt="fb"></a>
+            <a href="https://github.com/PonomarenkoSA" class="link footer__social-icon" target="_blank">
+              <img src="<%=require('../images/github.svg').default%>" alt="github">
+            </a>
+            <a href="https://www.facebook.com" class="link footer__social-icon" target="_blank">
+              <img src="<%=require('../images/fb.svg').default%>" alt="fb">
+            </a>
           </div>
-        </nav>
+        </div>
       </div>
     </footer>
+
+    <!-- Popup с мобильным меню. Чтобы активировать нужно добавить класс popup_is-opened-->
+    <div class="popup popup_menu-mobile">
+      <div class="popup__content-mobile">
+        <img src="<%=require('../images/close.svg').default%>" alt="Закрыть" class="popup__close-mobile">
+        <p class="logo logo_white popup__logo">NewsExplorer</p>
+          <nav class="popup__navigation-mobile">
+            <ul class="popup__list-mobile">
+              <li class="popup__item-mobile">
+                <a href="./index.html" class="link popup__link-mobile">Главная</a>
+              </li>
+              <li class="popup__item-mobile">
+                <a href="./articles.html" class="link popup__link-mobile">Сохранённые статьи</a>
+              </li>
+            </ul>
+            <button class="button popup__button-mobile">
+              <span class="popup__user-mobile">Грета</span>
+              <i class="popup__icon-mobile"></i>
+            </button>
+          </nav>
+      </div>
+    </div>
+
   </div>
   <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
-
 </html>

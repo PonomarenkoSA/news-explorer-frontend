@@ -5,7 +5,21 @@
 @import url(./__button/search__button.css);
 
 .search {
-  width: 42%;
+  width: 608px;
   margin: 0 auto;
   padding: 80px 0;
+}
+
+@media screen and (max-width: 980px) {
+  .search {
+    max-width: 448px;
+    padding: 38px 0 48px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .search {
+    width: 90%;
+    padding: 30px 0 32px;
+  }
 }
