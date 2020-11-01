@@ -5,3 +5,10 @@
 .card__icon_trash:hover {
   background-image: url(../../../../images/trash-hover.svg);
 }
+
+.card__icon_trash:hover + .card__warning_del {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}

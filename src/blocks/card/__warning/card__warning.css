@@ -1,6 +1,6 @@
-@import url(./_is-opened/card__warning_is-opened.css);
 @import url(./_save/card__warning_save.css);
 @import url(./_del/card__warning_del.css);
+@import url(./_hidden/card__warning_hidden.css);
 
 .card__warning {
   font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;

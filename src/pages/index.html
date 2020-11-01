@@ -2,12 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="news, search news, news explorer, news searching, поиск новостей, найти новости">
   <meta name="description" content="Сервис поиска и сохранения новостей">
   <meta name="author" content="Sergey Ponomarenko">
   <title>News Explorer</title>
-  <link rel="icon" href="<%=require('../images/favicon.png').default%>">
+  <link rel="icon" type="image/png" href="<%=require('../images/favicon.png').default%>">
   <link rel="shortcut icon" href="<%=require('../images/favicon.png').default%>" type="image/png">
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
 </head>
@@ -20,11 +21,11 @@
           <p class="logo logo_white">NewsExplorer</p>
           <nav class="header__navigation">
             <ul class="header__list">
-              <li class="header__item header__item_underlined-white">
+              <li class="header__item header__item_underlined-white header__item_main">
                 <a href="./index.html" class="link header__link header__link_white">Главная</a>
               </li>
               <!-- Чтобы убрать ссылку на страницу "Сохраненные статьи" нужно добавить в элемент li класс header__item_hidden -->
-              <li class="header__item">
+              <li class="header__item header__item_saved header__item_hidden">
                 <a href="./articles.html" class="link header__link header__link_white">Сохранённые статьи</a>
               </li>
             </ul>
@@ -32,7 +33,7 @@
             <button class="button header__button header__button_auth">Авторизоваться</button>
             <!-- Чтобы активировать кнопку с именем пользователя нужно удалить header__button_hidden -->
             <button class="button header__button header__button_name header__button_white header__button_hidden">
-              <span class="button__user">Грета</span>
+              <span class="button__user"></span>
               <i class="button__icon button__icon_white"></i>
             </button>
           </nav>
@@ -44,7 +45,7 @@
         <h2 class="search__description">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.
         </h2>
         <form class="search__form" name="search" novalidate>
-          <input type="text" name="search-input" class="search__input" placeholder="Введите тему новости" minlength="2"
+          <input type="text" name="search-input" class="search__input" placeholder="Введите тему новости" pattern="^[A-Za-zА-Яа-я0-9]+.*"
             required>
           <button type="submit" class="button search__button">Искать</button>
         </form>
@@ -64,108 +65,19 @@
           <p class="search-status__title">Ничего не найдено</p>
           <p class="search-status__text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
+        <div class="search-status search-status_error">
+          <img src="<%=require('../images/network-dis.png').default%>" class="search-status__error-icon"
+            alt="не найдено">
+          <p class="search-status__title">Во время запроса произошла ошибка</p>
+          <p class="search-status__text">Возможно, проблема с соединением или сервер недоступен.
+            Подождите немного и попробуйте ещё раз</p>
+        </div>
+
         <div class="search-result">
           <h2 class="search-result__title">Результаты поиска</h2>
-
           <div class="cards-container">
 
-            <div class="card">
-              <img src="<%=require('../images/image_08.jpg').default%>" alt="Фото статьи" class="card__image">
-              <div class="card__icon-container">
-                <div class="card__icon card__icon_unsaved"></div>
-                <!-- Чтобы активировать предупреждение нужно добавить card__warning_is-opened -->
-                <p class="card__warning card__warning_save">Войдите, чтобы сохранять статьи</p>
-              </div>
-              <div class="card__content">
-                <p class="card__date">2 августа, 2019</p>
-                <h3 class="card__title">Национальное достояние – парки</h3>
-                <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-                  складываться система национальных парков – охраняемых территорий,
-                  где и сегодня каждый может приобщиться к природе.</p>
-              </div>
-              <p class="card__source">Лента.ру</p>
-            </div>
 
-            <div class="card">
-              <img src="<%=require('../images/image_04.jpg').default%>" alt="Фото статьи" class="card__image">
-              <div class="card__icon-container">
-                <div class="card__icon card__icon_saved"></div>
-                <p class="card__warning card__warning_save">Войдите, чтобы сохранять статьи</p>
-              </div>
-              <div class="card__content">
-                <p class="card__date">2 августа, 2019</p>
-                <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-                <p class="card__text">Фотограф отвлеклась от освещения суровой политической
-                  реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                  из местных чудес природы.</p>
-              </div>
-              <p class="card__source">Медуза</p>
-            </div>
-
-            <div class="card">
-              <img src="<%=require('../images/image_07.jpg').default%>" alt="Фото статьи" class="card__image">
-              <div class="card__icon-container">
-                <div class="card__icon card__icon_unsaved"></div>
-                <!-- Чтобы деактивировать предупреждение нужно убрать класс card__warning_is-opened -->
-                <p class="card__warning card__warning_save card__warning_is-opened">Войдите, чтобы сохранять статьи</p>
-              </div>
-              <div class="card__content">
-                <p class="card__date">2 августа, 2019</p>
-                <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-                <p class="card__text">Знаменитый фотограф снимает первозданные леса России,
-                  чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу,
-                  где...</p>
-              </div>
-              <p class="card__source">Риа</p>
-            </div>
-
-            <div class="card">
-              <img src="<%=require('../images/image_08.jpg').default%>" alt="Фото статьи" class="card__image">
-              <div class="card__icon-container">
-                <div class="card__icon card__icon_unsaved"></div>
-                <p class="card__warning card__warning_save">Войдите, чтобы сохранять статьи</p>
-              </div>
-              <div class="card__content">
-                <p class="card__date">2 августа, 2019</p>
-                <h3 class="card__title">Национальное достояние – парки</h3>
-                <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-                  складываться система национальных парков – охраняемых территорий,
-                  где и сегодня каждый может приобщиться к природе.</p>
-              </div>
-              <p class="card__source">Лента.ру</p>
-            </div>
-
-            <div class="card">
-              <img src="<%=require('../images/image_04.jpg').default%>" alt="Фото статьи" class="card__image">
-              <div class="card__icon-container">
-                <div class="card__icon card__icon_unsaved"></div>
-                <p class="card__warning card__warning_save">Войдите, чтобы сохранять статьи</p>
-              </div>
-              <div class="card__content">
-                <p class="card__date">2 августа, 2019</p>
-                <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-                <p class="card__text">Фотограф отвлеклась от освещения суровой политической
-                  реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-                  из местных чудес природы.</p>
-              </div>
-              <p class="card__source">Медуза</p>
-            </div>
-
-            <div class="card">
-              <img src="<%=require('../images/image_07.jpg').default%>" alt="Фото статьи" class="card__image">
-              <div class="card__icon-container">
-                <div class="card__icon card__icon_unsaved"></div>
-                <p class="card__warning card__warning_save">Войдите, чтобы сохранять статьи</p>
-              </div>
-              <div class="card__content">
-                <p class="card__date">2 августа, 2019</p>
-                <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-                <p class="card__text">Знаменитый фотограф снимает первозданные леса России,
-                  чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу,
-                  где...</p>
-              </div>
-              <p class="card__source">Риа</p>
-            </div>
 
           </div>
           <button class="button search-result__button">Показать еще</button>
@@ -228,21 +140,21 @@
             <label for="email-signin" class="popup__label">Email</label>
             <input type="email" id="email-signin" name="email" class="popup__input" placeholder="Введите почту" required
               pattern="([A-Za-z\d]+([_.-][A-Za-z\d]+)*)@([A-Za-z\d]+(-[A-Za-z\d]+)?\.)+[A-Za-z]{2,}">
-            <span class="popup__error popup__error_input">Неправильный формат email</span>
+            <span class="popup__error popup__error_input"></span>
           </div>
           <div class="popup__container">
             <label for="password-signin" class="popup__label">Пароль</label>
             <input type="password" id="password-signin" name="password" class="popup__input"
-              placeholder="Введите пароль" required minlength="6">
-            <span class="popup__error popup__error_input">Неправильный формат пароля</span>
+              placeholder="Введите пароль" required minlength="8">
+            <span class="popup__error popup__error_input"></span>
           </div>
           <div class="popup__container popup__container_button">
-            <span class="popup__error popup__error_button">Неверный email или пароль</span>
+            <span class="popup__error popup__error_button"></span>
             <!-- Чтобы сделать неактивной кнопку формы нужно удалить класс popup__button_active -->
-            <button type="submit" class="button popup__button popup__button_active">Войти</button>
+            <button type="submit" class="button popup__button popup__button_signin">Войти</button>
           </div>
         </form>
-        <p class="popup__text">или <a class="link popup__link">Зарегистрироваться</a></p>
+        <p class="popup__text">или <a class="link popup__link popup__link_signin">Зарегистрироваться</a></p>
       </div>
     </div>
 
@@ -259,26 +171,26 @@
             <label for="email-signup" class="popup__label">Email</label>
             <input type="email" id="email-signup" name="email" class="popup__input" placeholder="Введите почту" required
               pattern="([A-Za-z\d]+([_.-][A-Za-z\d]+)*)@([A-Za-z\d]+(-[A-Za-z\d]+)?\.)+[A-Za-z]{2,}">
-            <span class="popup__error popup__error_input">Неправильный формат email</span>
+            <span class="popup__error popup__error_input"></span>
           </div>
           <div class="popup__container">
             <label for="password-signup" class="popup__label">Пароль</label>
             <input type="password" id="password-signup" name="password" class="popup__input"
-              placeholder="Введите пароль" required minlength="6">
-            <span class="popup__error popup__error_input">Неправильный формат пароля</span>
+              placeholder="Введите пароль" required minlength="8">
+            <span class="popup__error popup__error_input"></span>
           </div>
           <div class="popup__container">
             <label for="name-signup" class="popup__label">Имя</label>
             <input type="text" id="name-signup" name="name" class="popup__input" placeholder="Введите своё имя" required
-              minlength="2" maxlength="32" pattern="[A-Za-zА-Яа-я]">
-            <span class="popup__error popup__error_input">Неправильный формат имени</span>
+              minlength="2" maxlength="32" pattern="[A-Za-zА-Яа-я]+">
+            <span class="popup__error popup__error_input"></span>
           </div>
           <div class="popup__container popup__container_button">
-            <span class="popup__error popup__error_button">Такой пользователь уже есть</span>
-            <button type="submit" class="button popup__button popup__button_active">Зарегистрироваться</button>
+            <span class="popup__error popup__error_button"></span>
+            <button type="submit" class="button popup__button popup__button_signup">Зарегистрироваться</button>
           </div>
         </form>
-        <p class="popup__text">или <a class="popup__link">Войти</a></p>
+        <p class="popup__text">или <a class="link popup__link popup__link_signup">Войти</a></p>
       </div>
     </div>
 
@@ -290,7 +202,7 @@
           <img src="<%=require('../images/close.svg').default%>" alt="Закрыть" class="popup__close">
         </picture>
         <h3 class="popup__title popup__title_success">Пользователь успешно зарегистрирован!</h3>
-        <a class="popup__link popup__link_success">Войти</a>
+        <a class="link popup__link popup__link_success">Войти</a>
       </div>
     </div>
 
@@ -305,7 +217,7 @@
               <a href="./index.html" class="link popup__link-mobile">Главная</a>
             </li>
             <!-- Чтобы убрать ссылку на страницу "Сохраненные статьи" нужно добавить в элемент li класс popup__item-mobile_hidden -->
-            <li class="popup__item-mobile">
+            <li class="popup__item-mobile popup__item-mobile_hidden">
               <a href="./articles.html" class="link popup__link-mobile">Сохранённые статьи</a>
             </li>
           </ul>

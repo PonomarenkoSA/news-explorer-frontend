@@ -1,5 +1,6 @@
 @import url(./_button/popup__error_button.css);
 @import url(./_input/popup__error_input.css);
+@import url(./_is-opened/popup__error_is-opened.css);
 
 .popup__error {
   font-family: 'Inter', 'Roboto Slab', Arial, sans-serif;
@@ -8,4 +9,5 @@
   line-height: 15px;
   position: absolute;
   white-space: nowrap;
+  display: none;
 }

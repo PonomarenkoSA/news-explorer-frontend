@@ -1,0 +1,3 @@
+.card__icon_unsaved + .card__warning.card__warning_save.card__warning_hidden {
+  display: none;
+}

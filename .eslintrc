@@ -1,3 +1,14 @@
 {
-  "extends": "airbnb-base"
+  "extends": "airbnb-base",
+  "rules": {
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "no-undef": "off"
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "require": true,
+    "fetch": true
+  }
 }
