@@ -76,9 +76,6 @@
         <div class="search-result">
           <h2 class="search-result__title">Результаты поиска</h2>
           <div class="cards-container">
-
-
-
           </div>
           <button class="button search-result__button">Показать еще</button>
         </div>
@@ -100,7 +97,6 @@
           </div>
         </div>
       </section>
-
     </main>
 
     <footer class="footer">
@@ -217,21 +213,20 @@
               <a href="./index.html" class="link popup__link-mobile">Главная</a>
             </li>
             <!-- Чтобы убрать ссылку на страницу "Сохраненные статьи" нужно добавить в элемент li класс popup__item-mobile_hidden -->
-            <li class="popup__item-mobile popup__item-mobile_hidden">
+            <li class="popup__item-mobile popup__item-mobile_saved popup__item-mobile_hidden">
               <a href="./articles.html" class="link popup__link-mobile">Сохранённые статьи</a>
             </li>
           </ul>
           <!-- Чтобы деактивировать кнопку нужно добавить popup__button-mobile_hidden -->
-          <button class="button popup__button-mobile">Авторизоваться</button>
+          <button class="button popup__button-mobile popup__button-mobile_auth">Авторизоваться</button>
           <!-- Чтобы активировать кнопку нужно убрать popup__button-mobile_hidden -->
-          <button class="button popup__button-mobile popup__button-mobile_hidden">
-            <span class="popup__user-mobile">Грета</span>
+          <button class="button popup__button-mobile popup__button-mobile_name popup__button-mobile_hidden">
+            <span class="popup__user-mobile"></span>
             <i class="popup__icon-mobile"></i>
           </button>
         </nav>
       </div>
     </div>
-
   </div>
   <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>

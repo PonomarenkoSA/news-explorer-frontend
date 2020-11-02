@@ -1,23 +1,38 @@
 import BaseComponent from './BaseComponent';
 
 export default class NewsCardList extends BaseComponent {
-  constructor(container, preloaderElement, buttonElement, errorElement) {
+  constructor(container, preloaderElement, buttonElement, errorElement, newsCard) {
     super();
     this._container = container;
     this._preloaderElement = preloaderElement;
     this._buttonElement = buttonElement;
     this._errorElement = errorElement;
+    this.newsCard = newsCard;
+    this._showMore = this._showMore.bind(this);
   }
 
-  renderResults(cardsArray) {
+  //  Функция направляет данные из массива на создание карточки и последующее добавление на страницу
+  renderResults(cardsArray, keyWord) {
     this.cardsArray = cardsArray;
+    this.keyWord = keyWord;
     const cardsRender = this.cardsArray.splice(0, 3);
     cardsRender.forEach((card) => {
-      this._addCard(card);
-      this._setHandlers(this.showMoreButton, this._showMore);
+      const cardElement = this.newsCard.create(card, this.keyWord);
+      this._addCard(cardElement);
     });
   }
 
+  // Функция устанавливает слушатель на кнопку показать еще
+  setEventListener(cardsArray) {
+    if (cardsArray.length > 3) {
+      this._buttonElement.classList.remove('search-result__button_hidden');
+    } else {
+      this._buttonElement.classList.add('search-result__button_hidden');
+    }
+    this._setListeners([[this._buttonElement, 'click', this._showMore]]);
+  }
+
+  // Отрисовка лоудера
   renderLoader(state) {
     if (state) {
       this._preloaderElement.classList.add('search-status_is-opened');
@@ -26,6 +41,7 @@ export default class NewsCardList extends BaseComponent {
     }
   }
 
+  // Отрисовка ошибка связи
   renderError(state) {
     if (state) {
       this._errorElement.classList.add('search-status_is-opened');
@@ -35,25 +51,23 @@ export default class NewsCardList extends BaseComponent {
   }
 
   _showMore() {
-    const cardsRender = this.cardsArray.splice(0, 3);
-    this.renderResults(cardsRender);
+    this.renderResults(this.cardsArray, this.keyWord);
     if (this.cardsArray.length === 0) {
-      this._buttonElement.classList.add('.search-result__button_hidden');
+      this._buttonElement.classList.add('search-result__button_hidden');
     }
   }
 
+  // Сформированная карточка добавляется в разметку
   _addCard(card) {
-    this.container.appendChild(card);
+    this._container.appendChild(card);
   }
 
   clearCardList() {
-    const cards = this._container.querySelectorAll('.card');
-    if (cards) {
-      if (cards.length !== 0) {
-        cards.forEach((card) => {
-          card.remove();
-        });
-      }
+    const cards = Array.from(this._container.querySelectorAll('.card'));
+    if (cards.length !== 0) {
+      cards.forEach((card) => {
+        card.remove();
+      });
     }
   }
 }

@@ -1,17 +1,12 @@
-import BaseComponent from './BaseComponent';
-
-export default class NewsCard extends BaseComponent {
+export default class NewsCard {
   constructor(mainApi, getCardDate) {
-    super();
     this.mainApi = mainApi;
     this.getCardDate = getCardDate;
-    this._id = null;
   }
 
+  // Функция создает карточку
   create(article, keyWord) {
     const card = document.createElement('div');
-    this.article = article;
-    this.keyWord = keyWord;
     card.classList.add('card');
     this.cardDate = this.getCardDate(article.publishedAt);
     const template = `
@@ -29,71 +24,72 @@ export default class NewsCard extends BaseComponent {
       <p class="card__source">${article.source.name}</p>
     </a>`;
     card.insertAdjacentHTML('beforeend', template);
-    this.cardItem = card;
-    this.cardIcon = this.cardItem.querySelector('.card__icon');
-    this.cardWarning = this.cardItem.querySelector('.card__warning_save');
-    this._renderIcon();
-    console.log('GHGHGHGHGH', card);
+    const cardIcon = card.querySelector('.card__icon');
+    const cardWarning = card.querySelector('.card__warning_save');
+    this._renderIcon(cardIcon, cardWarning, keyWord, article);
     return card;
   }
 
-  _renderIcon() {
-    if (localStorage.getItem('loggedIn')) {
-      this.cardWarning.classList.add('card__warning_hidden');
-      this._setEventListener();
+  _renderIcon(cardIcon, cardWarning, keyWord, article) {
+    const loggedIn = localStorage.getItem('loggedIn');
+    if (loggedIn === 'true') {
+      cardWarning.classList.add('card__warning_hidden');
+      this._setEventListener(cardIcon, cardWarning, keyWord, article);
     }
   }
 
-  _setEventListener() {
-    this._setListeners([[this.cardIcon, 'click', this._saveArticle]]);
+  _setEventListener(cardIcon, cardWarning, keyWord, article) {
+    cardIcon.addEventListener('click', (event) => this._saveArticle(event, cardWarning, keyWord, article));
   }
 
-  _saveArticle() {
-    if (!this._id) {
-      this._sendApiAricle();
+  _saveArticle(event, cardWarning, keyWord, article) {
+    if (!article.id) {
+      this._sendApiArticle(event, cardWarning, keyWord, article);
+    } else {
+      this._delApiArticle(event, cardWarning, keyWord, article);
     }
-    this._delApiArticle();
   }
 
-  _sendApiArticle() {
+  // Статья направляется для сохранения в адрес API
+  _sendApiArticle(event, cardWarning, keyWord, article) {
     this.mainApi.createArticle(
-      this.keyWord,
-      this.article.title,
-      this.article.description,
+      keyWord,
+      article.title,
+      article.description,
       this.cardDate,
-      this.article.sourse.name,
-      this.article.url,
-      this.article.urlToImage,
+      article.source.name,
+      article.url,
+      article.urlToImage,
     )
       .then((res) => {
-        this._id = res.id;
-        this.cardIcon.classList.remove('card__icon_unsaved');
-        this.cardIcon.classList.add('card__icon_saved');
-        console.log(res.id);
+        article.id = res.id;
+        event.target.classList.remove('card__icon_unsaved');
+        event.target.classList.add('card__icon_saved');
       })
       .catch(() => {
-        this.cardWarning.textContent = 'Не удалось сохранить. Ошибка сервера';
-        this.cardWarning.classList.remove('card__warning_hidden');
+        cardWarning.textContent = 'Не удалось сохранить. Ошибка сервера';
+        cardWarning.classList.remove('card__warning_hidden');
         setTimeout(this._changeMessage, 5000);
       });
   }
 
-  _delApiArticle() {
-    this.mainApi.deleteArticle(this._id)
+  // Статья направляется для удаления в адрес API
+  _delApiArticle(event, cardWarning, keyWord, article) {
+    this.mainApi.deleteArticle(article.id)
       .then(() => {
-        this._id = null;
-        this.cardIcon.classList.add('card__icon_unsaved');
-        this.cardIcon.classList.remove('card__icon_saved');
+        article.id = null;
+        event.target.classList.add('card__icon_unsaved');
+        event.target.classList.remove('card__icon_saved');
       })
       .catch(() => {
-        this.cardWarning.textContent = 'Не удалось удалить. Ошибка сервера';
-        this.cardWarning.classList.remove('card__warning_hidden');
-        setTimeout(this._changeMessage, 5000);
+        cardWarning.textContent = 'Не удалось удалить. Ошибка сервера';
+        cardWarning.classList.remove('card__warning_hidden');
+        setTimeout(this._changeMessage, 5000, cardWarning);
       });
   }
 
   _changeMessage() {
-    this.cardWarning.textContent = 'Войдите, чтобы сохранять статьи';
-    this.cardWarning.classList.add('card__warning_hidden');
+    cardWarning.textContent = 'Войдите, чтобы сохранять статьи';
+    cardWarning.classList.add('card__warning_hidden');
   }
 }

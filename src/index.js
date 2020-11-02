@@ -18,11 +18,12 @@ import {
   FORM_ERROR_MESSAGES,
   SEARCH_ERROR_MESSAGE,
   PLACEHOLDER_TEXT,
-  ARTICLES,
 } from './js/constants/constant';
 import getPreviousDate from './js/utils/utility-previous-date';
 import getCardDate from './js/utils/utility-card-date';
 import NewsCardList from './js/components/NewsCardList';
+
+// Создаем переменные для эдементов DOM
 
 const headerSigninButton = document.querySelector('.header__button_auth');
 const headerLogoutButton = document.querySelector('.header__button_name');
@@ -47,11 +48,18 @@ const searchPreloader = document.querySelector('.search-status.search-status_pre
 const searchNotFind = document.querySelector('.search-status.search-status_not-found');
 const searchErrorNetwork = document.querySelector('.search-status.search-status_error');
 const searchArticlesBlock = document.querySelector('.search-result');
-const cadsContainer = document.querySelector('.cards-container');
-const searchResultButton = document.querySelector('.earch-result__button');
+const cardsContainer = document.querySelector('.cards-container');
+const searchResultButton = document.querySelector('.search-result__button');
+const menuPopupElement = document.querySelector('.popup_menu-mobile');
+const closeElementMobile = menuPopupElement.querySelector('.popup__close-mobile');
+const mobileButton = document.querySelector('.header__button-mobile');
+const mobileSigninButton = document.querySelector('.popup__button-mobile_auth');
+const mobileLogoutButton = document.querySelector('.popup__button-mobile_name');
+const mobileSavedLink = document.querySelector('.popup__item-mobile_saved');
 
 // Создаем экземпляры классов
 
+const menuPopup = new Popup(closeElementMobile, menuPopupElement);
 const signinPopup = new Popup(closeElementSignin, signinPopupElement);
 const signupPopup = new Popup(closeElementSignup, signupPopupElement);
 const successPopup = new Popup(closeElementSuccess, successPopupElement);
@@ -62,6 +70,9 @@ const header = new Header(
   headerLogoutButton,
   headerLinkSaved,
   headerSigninButton,
+  mobileLogoutButton,
+  mobileSavedLink,
+  mobileSigninButton,
 );
 const signinForm = new Form(
   formSingin,
@@ -82,10 +93,11 @@ const signupForm = new Form(
 const startPage = new StartPage(MAIN_PAGE_PATH);
 const newsCard = new NewsCard(mainApi, getCardDate);
 const newsCardList = new NewsCardList(
-  cadsContainer,
+  cardsContainer,
   searchPreloader,
   searchResultButton,
   searchErrorNetwork,
+  newsCard,
 );
 
 // Объявляем функции
@@ -96,6 +108,13 @@ function openFormSignin() {
   signinPopup.open();
 }
 
+// Функция обработчик открытия мобильного меню
+function openMenuPopup() {
+  menuPopup.open();
+}
+
+// Функция обработчик поисковой строки.
+// Получает данные с newsAPI и передает их на обработку классу newsCardList
 function setSearchResult(event) {
   event.preventDefault();
   if (searchForm.validateInputElement()) {
@@ -106,34 +125,27 @@ function setSearchResult(event) {
     newsCardList.clearCardList();
     newsCardList.renderLoader(true);
     const { dateFrom, dateTo } = getPreviousDate(NUMBER_PREVIOUS_DAYS);
-    // newsApi.getNews(keyWord, dateFrom, dateTo)
-      // .then((data) => {
-    if (ARTICLES.articles.length !== 0) {
-      const cardsArray = [];
-      console.log('cardsArray', cardsArray);
-      ARTICLES.articles.forEach((article) => {
-        console.log('СТАТЬЯ', article);
-        console.log('готовая карточка', newsCard.create(article, keyWord));
-
-        cardsArray.push(newsCard.create(article, keyWord));
-        console.log('МАССИВ', cardsArray);
+    newsApi.getNews(keyWord, dateFrom, dateTo)
+      .then((data) => {
+        if (data.articles.length !== 0) {
+          newsCardList.setEventListener(data.articles);
+          newsCardList.renderResults(data.articles, keyWord);
+          searchArticlesBlock.classList.add('search-result_is-opened');
+        } else {
+          searchNotFind.classList.add('search-status_is-opened');
+        }
+      })
+      .catch(() => {
+        newsCardList.renderError(true);
+      })
+      .finally(() => {
+        newsCardList.renderLoader(false);
       });
-      console.log(cardsArray);
-      newsCardList.renderResults(cardsArray);
-      searchArticlesBlock.classList.add('search-result_is-opened');
-    } else {
-      searchNotFind.classList.add('search-status_is-opened');
-    }
-      // });
-      // .catch(() => {
-      //   newsCardList.renderError(true);
-      // })
-      // .finally(() => {
-      //   newsCardList.renderLoader(false);
-      // });
     formSearch.reset();
   }
 }
+
+// Функция переключает видимость форм
 
 function switchForm(event) {
   if (event.target === formSingupLink) {
@@ -153,6 +165,9 @@ function switchForm(event) {
   }
 }
 
+// Функция для первоначальной отрисовки страницы.
+// Отправляет запрос на mainApi для проверки залогинен ли пользователь
+
 function setHeaderRender() {
   mainApi.getUserData()
     .then((res) => {
@@ -165,6 +180,9 @@ function setHeaderRender() {
     });
 }
 
+// Функция обрабатывает событие выхода из личного кабинета.
+//  В зависимости от активной страницы либо направляет пользователя на стртовую,
+// либо перезагружает текущую.
 function logout() {
   mainApi.logout()
     .then(() => {
@@ -182,5 +200,9 @@ formSinginLink.addEventListener('click', switchForm);
 successSinginLink.addEventListener('click', switchForm);
 headerLogoutButton.addEventListener('click', logout);
 searchArticlesButton.addEventListener('click', setSearchResult);
+
+mobileButton.addEventListener('click', openMenuPopup);
+mobileSigninButton.addEventListener('click', openFormSignin);
+mobileLogoutButton.addEventListener('click', logout);
 
 setHeaderRender();

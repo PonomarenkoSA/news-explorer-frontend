@@ -8,6 +8,7 @@
 @import url(./__warning/card__warning.css);
 @import url(./__icon/card__icon.css);
 @import url(./__sphere/card__sphere.css);
+@import url(./__link/card__link.css);
 
 .card {
   border-radius: 16px;
@@ -43,6 +44,7 @@
   .card {
     height: 579px;
     margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -50,6 +52,7 @@
   .card {
     height: 545px;
     margin: 0 auto;
+    width: 100%;
   }
 }
 

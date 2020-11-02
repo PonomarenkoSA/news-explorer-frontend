@@ -61,7 +61,7 @@ export default class MainApi {
         if (res.ok) {
           return res.json();
         }
-        return Promise.reject();
+        return Promise.reject(res);
       })
       .catch((err) => Promise.reject(err));
   }
@@ -100,7 +100,7 @@ export default class MainApi {
         if (res.ok) {
           return res.json();
         }
-        return Promise.reject();
+        return Promise.reject(res);
       })
       .catch((err) => Promise.reject(err));
   }

@@ -8,6 +8,7 @@ export default class SearchForm extends BaseComponent {
     this.placeholderText = placeholderText;
   }
 
+  // Функция для валидации формы поиска статей
   validateInputElement() {
     if (!this.input.checkValidity()) {
       this.input.value = '';

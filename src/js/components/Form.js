@@ -24,6 +24,7 @@ export default class Form extends BaseComponent {
     this._setListeners([[this.button, 'click', this._submitCallback]]);
   }
 
+  // Отображает ошибку сервера над кнопкой отправки формы
   _setServerError(message) {
     this.errorButton.textContent = message;
     this.errorButton.classList.add('popup__error_is-opened');
@@ -58,6 +59,7 @@ export default class Form extends BaseComponent {
     this.errorButton.classList.remove('popup__error_is-opened');
   }
 
+  // Валидируется вся форма
   _validateForm() {
     let flag = true;
     this.inputs.forEach((input) => {
@@ -78,6 +80,7 @@ export default class Form extends BaseComponent {
     this.form.reset();
   }
 
+  // Получение данных формы
   _getInfo() {
     const formValues = {};
     this.inputs.forEach((input) => {

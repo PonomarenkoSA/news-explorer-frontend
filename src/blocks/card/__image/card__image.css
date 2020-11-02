@@ -1,3 +1,20 @@
 .card__image {
   width: 100%;
+  margin: 0;
+  object-fit: cover;
+  box-sizing: border-box;
+  display: block;
+  height: 272px;
+}
+
+@media screen and (max-width: 980px) {
+  .card__image {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 745px) {
+  .card__image {
+    height: 196px;
+  }
 }

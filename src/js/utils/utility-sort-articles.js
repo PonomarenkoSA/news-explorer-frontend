@@ -1,8 +1,8 @@
 /* eslint-disable func-names */
 /* eslint no-param-reassign: "error" */
 
-export default function (date) {
-  const keywordArticlesArray = date.map((item) => item.keyword);
+export default function (articles) {
+  const keywordArticlesArray = articles.map((item) => item.keyword);
   const keywordArticlesObj = keywordArticlesArray.reduce((obj, key) => {
     if (!obj[key]) {
       obj[key] = 1;
