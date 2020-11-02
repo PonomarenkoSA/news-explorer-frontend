@@ -1,0 +1,14 @@
+.card__icon_unsaved {
+  background-image: url(../../../../images/save-icon.svg);
+}
+
+.card__icon_unsaved:hover {
+  background-image: url(../../../../images/save-icon-hover.svg);
+}
+
+.card__icon_unsaved:hover + .card__warning_save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}

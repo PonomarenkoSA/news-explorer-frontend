@@ -1,0 +1,7 @@
+.card__icon_saved {
+  background-image: url(../../../../images/save-icon-active.svg);
+}
+
+.card__icon_saved:hover {
+  opacity: 0.8;
+}

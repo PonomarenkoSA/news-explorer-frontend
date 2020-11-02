@@ -1,0 +1,9 @@
+.author__text-container {
+  margin: 51px 0 0;
+}
+
+@media screen and (max-width: 980px) {
+  .author__text-container {
+    margin: 0;
+  }
+}

@@ -1,0 +1,24 @@
+.search-result__title {
+  font-family: 'Roboto Slab', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1A1B22;
+  margin: 0 0 64px 0;
+}
+
+@media screen and (max-width: 980px) {
+  .search-result__title {
+    font-size: 30px;
+    line-height: 34px;
+    margin: 0 0 32px 0;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .search-result__title {
+    font-size: 30px;
+    line-height: 34px;
+    margin: 0 0 24px 0;
+  }
+}

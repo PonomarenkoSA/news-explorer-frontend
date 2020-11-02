@@ -1,0 +1,36 @@
+@import url(./_hidden/search-result__button_hidden.css);
+
+.search-result__button {
+  display: block;
+  margin: 64px auto 0;
+  background-color: #FFF;
+  border-radius: 80px;
+  color:  #1A1B22;
+  font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  height: 64px;
+  width: 288px;
+}
+
+.search-result__button:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 980px) {
+  .search-result__button {
+    margin: 32px auto 0;
+    height: 56px;
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-result__button {
+    margin: 15px auto 0;
+    height: 56px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,16 @@
+@import url(./_white/header__link_white.css);
+@import url(./_dark/header__link_dark.css);
+
+.header__link {
+  font-family: 'Roboto', 'Roboto Slab', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 980px) {
+  .header__link {
+    font-size: 16px;
+  }
+}

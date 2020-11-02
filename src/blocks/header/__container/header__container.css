@@ -1,0 +1,26 @@
+@import url(./_white/header__container_white.css);
+@import url(./_dark/header__container_dark.css);
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85.5%;
+  min-height: 80px;
+  height: 1px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 980px) {
+  .header__container {
+    width: 89.5%;
+    min-height: 66px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .header__container {
+    width: 90%;
+    min-height: 56px;
+  }
+}

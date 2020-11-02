@@ -1,0 +1,7 @@
+.popup__close-mobile {
+  width: 24px;
+  position: absolute;
+  top: 16px;
+  right: calc(5%);
+  cursor: pointer;
+}

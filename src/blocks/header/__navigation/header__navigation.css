@@ -1,0 +1,11 @@
+.header__navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+@media screen and (max-width: 745px) {
+  .header__navigation {
+    display: none;
+  }
+}

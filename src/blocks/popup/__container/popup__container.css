@@ -1,0 +1,13 @@
+@import url(./_button/popup__container_button.css);
+
+.popup__container {
+  display: block;
+  position: relative;
+  margin-bottom: 31px;
+}
+
+.popup__container:nth-of-type(2) {
+  display: block;
+  position: relative;
+  margin-bottom: 39px;
+}

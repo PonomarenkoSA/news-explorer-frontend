@@ -1,0 +1,6 @@
+.popup__error.popup__error_button {
+  top: -16px;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%);
+}

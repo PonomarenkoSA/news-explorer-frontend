@@ -1,0 +1,5 @@
+@import url(./_hidden/popup__item-mobile_hidden.css);
+
+.popup__item-mobile {
+  margin: 0 0 35px;
+}
