@@ -95,6 +95,7 @@ export default class Form extends BaseComponent {
     if (this.form.name === 'signin') {
       this.mainApi.signin(formValues)
         .then(() => {
+          localStorage.setItem('loggedIn', 'true');
           this.popup.close();
           window.location.reload();
         })

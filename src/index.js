@@ -169,15 +169,18 @@ function switchForm(event) {
 // Отправляет запрос на mainApi для проверки залогинен ли пользователь
 
 function setHeaderRender() {
-  mainApi.getUserData()
-    .then((res) => {
-      header.render(true, res.name);
-      localStorage.setItem('loggedIn', 'true');
-    })
-    .catch(() => {
-      header.render(false, '');
-      localStorage.setItem('loggedIn', 'false');
-    });
+  if (localStorage.getItem('loggedIn') === 'true') {
+    mainApi.getUserData()
+      .then((res) => {
+        header.render(true, res.name);
+      })
+      .catch(() => {
+        header.render(false, '');
+        localStorage.setItem('loggedIn', 'false');
+      });
+  } else {
+    header.render(false, '');
+  }
 }
 
 // Функция обрабатывает событие выхода из личного кабинета.
